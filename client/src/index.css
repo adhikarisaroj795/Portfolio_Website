@@ -142,7 +142,9 @@ img {
 .mb-lg {
   margin-bottom: var(--spacing-lg);
 }
-
+li {
+  list-style-type: none;
+}
 .flex {
   display: flex;
 }

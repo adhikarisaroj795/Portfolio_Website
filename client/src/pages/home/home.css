@@ -1,0 +1,20 @@
+.home-page-wrapper .home-page-left {
+  width: 50%;
+  flex: 1 1 50%;
+  flex: 1;
+}
+.home-page-wrapper .home-page-right {
+  width: 50%;
+  flex: 1 1 50%;
+  flex: 1;
+}
+
+.home-page-left h3 {
+  display: flex;
+  align-items: center;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+}
