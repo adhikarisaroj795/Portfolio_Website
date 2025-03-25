@@ -38,10 +38,12 @@ header nav ul li:last-of-type {
 header nav ul a {
   padding-inline: 40px;
   text-wrap: nowrap;
+  color: var(--color-primary);
 }
 
 .nav-icon {
   height: 100%;
+  color: var(--color-primary);
 
   flex: 1;
   display: flex;
@@ -60,6 +62,7 @@ header nav ul a {
   align-items: center;
   justify-content: flex-end;
   height: 100%;
+  color: var(--color-primary);
 }
 .contact-us ul {
   display: flex;

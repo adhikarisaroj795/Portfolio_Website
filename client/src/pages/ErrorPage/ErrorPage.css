@@ -1,0 +1,71 @@
+/* Center the error page */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+/* Error box */
+.error-box {
+  text-align: center;
+  max-width: 400px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Error code */
+.error-code {
+  font-size: 80px;
+  font-weight: bold;
+  color: #d9534f;
+  margin: 0;
+}
+
+/* Error message */
+.error-message {
+  font-size: 18px;
+  color: #555;
+  margin: 15px 0;
+}
+
+/* SVG styling */
+.error-icon svg {
+  width: 100px;
+  height: 100px;
+  stroke: #d9534f;
+  margin-top: 20px;
+  animation: shake 0.5s infinite alternate;
+}
+
+/* Shake animation for the SVG */
+@keyframes shake {
+  from {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+
+/* Button styling */
+.home-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.home-button:hover {
+  background: #0056b3;
+}

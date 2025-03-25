@@ -1,29 +1,30 @@
-import React from "react";
+
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <header className="flex container">
       <div className="nav-icon">
-        <a href="">Saroj-adikari</a>
+        <Link to="/">Saroj-adikari</Link>
       </div>
       <nav>
         <ul className="flex">
           <li>
-            <a href="">_hello</a>
+            <Link to={"/"}>_hello</Link>
           </li>
           <li>
-            <a href="">_about-me</a>
+            <Link to="about-me">_about-me</Link>
           </li>
           <li>
-            <a href="">_projects</a>
+            <Link to="projects">_projects</Link>
           </li>
         </ul>
       </nav>
       <div className="contact-us">
         <ul>
           <li>
-            <a href="">_contact-us</a>
+            <Link to="contact-me">_contact-us</Link>
           </li>
         </ul>
       </div>

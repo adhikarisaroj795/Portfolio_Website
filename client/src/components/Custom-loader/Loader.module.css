@@ -1,0 +1,48 @@
+.terminal {
+  background-color: black;
+  color: #00ff00;
+  font-family: "Fira Code", monospace;
+  padding: 20px;
+  width: 600px;
+  height: 300px;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5);
+}
+
+.line {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.prompt {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.wrapper::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: rgba(36, 15, 227, 0.1);
+  position: absolute;
+}
