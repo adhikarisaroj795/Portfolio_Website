@@ -1,33 +1,45 @@
 import SnakeGame from "../../components/snakeGame/SnakeGame";
 import "./home.css";
-import { MdKeyboardArrowRight } from "react-icons/md";
+
 import {
   IoMdArrowDropupCircle,
   IoMdArrowDropdownCircle,
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from "react-icons/io";
-const Home = () => {
+import TypingEffect from "../../components/typingEffect/TypingEffect";
+
+const Home: React.FC = () => {
   return (
     <section className="home-section">
       <div className="home-page-wrapper flex">
         <div className="home-page-left">
           <div className="home-left-content">
-            <span>Hi all, i am</span>
+            <span className="f-regular">Hi all, i am</span>
+
             <h1>Saroj Adikari</h1>
-            <h3>
-              <MdKeyboardArrowRight />
-              Full-Stack Developer
+            <h3 className="color-blue">
+              {/* <MdKeyboardArrowRight /> */}
+              <TypingEffect />
             </h3>
 
             <div className="comment">
               <span>//complete the game to continue</span>
-              <span>//complete the game to continue</span>
+              <span>//find my profile on Gitub</span>
             </div>
 
             <p>
-              <span>Const</span> <span>githubLink </span> =
-              <span> https://github.com/adhikarisaroj795</span>
+              <span className="color-blue">Const </span>
+              <span className="color-green">githubLink </span> = <span></span>
+              <span className="color-yellow">
+                <a
+                  href="https://github.com/adhikarisaroj795"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://github.com/adhikarisaroj795
+                </a>
+              </span>
             </p>
           </div>
         </div>
@@ -57,11 +69,14 @@ const Home = () => {
             </div>
 
             <div className="snk-highscore">
-              <span>// Highest Score: 85</span>
+              <span className="color-blue"> Highest Score: 85</span>
             </div>
           </div>
         </div>
       </div>
+      {/* <div>
+        <TerminalLoader />
+      </div> */}
     </section>
   );
 };

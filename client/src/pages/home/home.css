@@ -22,7 +22,11 @@
 
   padding: 15px;
   border-radius: 8px;
-  box-shadow: var(--shadow-lg);
+  /* background: #f5f5f5; */
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.1),
+    -6px -6px 15px rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+
   /* border: 2px solid red; */
 }
 
@@ -42,6 +46,7 @@
 .game-controls {
   flex: 1;
   background: var(--background-gradient);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
 }
 .home-page-left {
   display: flex;
@@ -57,16 +62,23 @@
 .comment {
   display: flex;
   flex-direction: column;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 .color-blue {
-  color: #615fff;
+  color: #615fff !important;
 }
 .color-yellow {
   color: #e7a863;
 }
 .color-pink {
   color: #a36de7;
+}
+
+.color-green {
+  color: #01bdac;
 }
 
 .game-controls {
@@ -76,6 +88,7 @@
 
 .home-left-content h1 {
   font-size: 3.5rem;
+  /* font-size: var(--font-size-xl); */
 }
 
 .controlls-comment {
@@ -125,4 +138,24 @@
   font-size: var(--font-size-sm);
   text-align: center;
   color: var(--color-primary);
+}
+
+.home-left-content span {
+  font-size: var(--font-size-sm);
+}
+.home-left-content p {
+  font-size: var(--font-size-sm);
+}
+
+.home-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.home-left-content p span a {
+  text-decoration: underline;
+}
+
+.f-regular {
+  font-variation-settings: "wght" 300, "slnt" 80;
 }

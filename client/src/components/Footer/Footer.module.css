@@ -32,6 +32,7 @@ footer {
   height: 100%;
   font-size: 24px;
   color: var(--color-primary);
+  height: 100%;
 
   padding-right: calc(20px);
   border-right: 2px solid var(--color-primary);
@@ -44,4 +45,10 @@ footer {
   color: var(--color-primary);
   padding-right: calc(20px);
   border-right: 2px solid var(--color-primary);
+}
+.col2 a {
+  display: flex;
+}
+.col3 a {
+  display: flex;
 }

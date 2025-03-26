@@ -1,8 +1,22 @@
-
+import React from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+interface NavItem {
+  path: string;
+  label: string;
+}
+
+// Navigation items moved outside the component for better maintainability
+const navItems: NavItem[] = [
+  { path: "/", label: "_hello" },
+  { path: "/about-me", label: "_about-me" },
+  { path: "/projects", label: "_projects" },
+];
+
+const Navbar: React.FC = () => {
+  const location = useLocation(); // Get current path
+
   return (
     <header className="flex container">
       <div className="nav-icon">
@@ -10,21 +24,20 @@ const Navbar = () => {
       </div>
       <nav>
         <ul className="flex">
-          <li>
-            <Link to={"/"}>_hello</Link>
-          </li>
-          <li>
-            <Link to="about-me">_about-me</Link>
-          </li>
-          <li>
-            <Link to="projects">_projects</Link>
-          </li>
+          {navItems.map(({ path, label }) => (
+            <li
+              key={path}
+              className={location.pathname === path ? "active" : ""}
+            >
+              <Link to={path}>{label}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <div className="contact-us">
         <ul>
-          <li>
-            <Link to="contact-me">_contact-us</Link>
+          <li className={location.pathname === "/contact-me" ? "active" : ""}>
+            <Link to="/contact-me">_contact-us</Link>
           </li>
         </ul>
       </div>

@@ -22,7 +22,9 @@ const TerminalLoader: React.FC = () => {
         const typingTimeout = setTimeout(() => {
           setCurrentMessage((prev) => prev + messages[messageIndex][charIndex]);
           setCharIndex((prev) => prev + 1);
-        }, 50);
+        }, 10);
+
+        //10
         return () => clearTimeout(typingTimeout);
       } else {
         const nextMessageTimeout = setTimeout(() => {
@@ -30,7 +32,9 @@ const TerminalLoader: React.FC = () => {
           setCurrentMessage("");
           setMessageIndex((prev) => prev + 1);
           setCharIndex(0);
-        }, 500);
+        }, 300);
+
+        //500
         return () => clearTimeout(nextMessageTimeout);
       }
     }

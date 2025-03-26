@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./SnakeGame.css";
 
+// Define types
+interface Position {
+  x: number;
+  y: number;
+}
+
 const GRID_SIZE = 20;
-const INITIAL_SNAKE = [
+const INITIAL_SNAKE: Position[] = [
   { x: 8, y: 10 },
   { x: 7, y: 10 },
   { x: 6, y: 10 },
 ];
 
-const getRandomFoodPosition = (snake: { x: number; y: number }[]) => {
-  let newFood;
+const getRandomFoodPosition = (snake: Position[]): Position => {
+  let newFood: Position;
   do {
     newFood = {
       x: Math.floor(Math.random() * GRID_SIZE),
@@ -21,23 +27,27 @@ const getRandomFoodPosition = (snake: { x: number; y: number }[]) => {
   return newFood;
 };
 
+// Define movement directions
 const DIRECTIONS = {
   UP: { x: 0, y: -1 },
   DOWN: { x: 0, y: 1 },
   LEFT: { x: -1, y: 0 },
   RIGHT: { x: 1, y: 0 },
-};
+} as const;
 
-const SnakeGame = () => {
-  const [snake, setSnake] = useState(INITIAL_SNAKE);
-  const [food, setFood] = useState(() => getRandomFoodPosition(INITIAL_SNAKE));
-  const [direction, setDirection] = useState(DIRECTIONS.RIGHT);
-  const [speed, setSpeed] = useState(200);
-  const [gameOver, setGameOver] = useState(false);
+const SnakeGame: React.FC = () => {
+  const [snake, setSnake] = useState<Position[]>(INITIAL_SNAKE);
+  const [food, setFood] = useState<Position>(() =>
+    getRandomFoodPosition(INITIAL_SNAKE)
+  );
+  const [direction, setDirection] = useState<Position>(DIRECTIONS.RIGHT);
+  const [speed, setSpeed] = useState<number>(200);
+  const [gameOver, setGameOver] = useState<boolean>(false);
+
   const gameLoop = useRef<NodeJS.Timeout | null>(null);
-  const directionQueue = useRef<{ x: number; y: number } | null>(null);
-  const directionRef = useRef(direction);
-  const snakeRef = useRef(snake);
+  const directionQueue = useRef<Position | null>(null);
+  const directionRef = useRef<Position>(direction);
+  const snakeRef = useRef<Position[]>(snake);
 
   useEffect(() => {
     directionRef.current = direction;
@@ -61,6 +71,7 @@ const SnakeGame = () => {
 
     if (!newDirection) return;
 
+    // Prevent reversing direction
     if (
       newDirection.x + directionRef.current.x === 0 &&
       newDirection.y + directionRef.current.y === 0
@@ -79,9 +90,7 @@ const SnakeGame = () => {
   const moveSnake = useCallback(() => {
     if (gameOver) return;
 
-    const currentDirection = directionRef.current;
-    const currentSnake = [...snakeRef.current];
-    let newDirection = currentDirection;
+    let newDirection = directionRef.current;
 
     if (directionQueue.current) {
       newDirection = directionQueue.current;
@@ -89,9 +98,9 @@ const SnakeGame = () => {
       setDirection(newDirection);
     }
 
-    const head = {
-      x: currentSnake[0].x + newDirection.x,
-      y: currentSnake[0].y + newDirection.y,
+    const head: Position = {
+      x: snakeRef.current[0].x + newDirection.x,
+      y: snakeRef.current[0].y + newDirection.y,
     };
 
     // Collision detection
@@ -100,7 +109,7 @@ const SnakeGame = () => {
       head.x >= GRID_SIZE ||
       head.y < 0 ||
       head.y >= GRID_SIZE ||
-      currentSnake.some(
+      snakeRef.current.some(
         (segment) => segment.x === head.x && segment.y === head.y
       )
     ) {
@@ -109,7 +118,7 @@ const SnakeGame = () => {
       return;
     }
 
-    const newSnake = [head, ...currentSnake];
+    const newSnake = [head, ...snakeRef.current];
 
     // Food consumption
     if (head.x === food.x && head.y === food.y) {
@@ -158,15 +167,17 @@ const SnakeGame = () => {
           return (
             <div
               key={`${x}-${y}`}
-              className={`grid-cell ${isSnake ? "snake" : ""} ${
-                isFood ? "food" : ""
-              }`}
+              className={`grid-cell ${
+                isSnake
+                  ? snake[0].x === x && snake[0].y === y
+                    ? "snake-head tongue"
+                    : "snake"
+                  : ""
+              } ${isFood ? "food" : ""}`}
             />
           );
         })}
       </div>
-
-      {/* {gameOver && <div className="game-over">Game Over! Click Restart</div>} */}
     </div>
   );
 };

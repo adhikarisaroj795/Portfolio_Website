@@ -71,3 +71,23 @@ header nav ul a {
   padding-left: 24px;
   border-left: 2px solid var(--color-primary);
 }
+header ul li {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+header ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px; /* Positioning the border */
+  width: 0%;
+  height: 6px;
+  background-color: #ffb86a;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+header ul li.active::after {
+  width: 100%;
+}

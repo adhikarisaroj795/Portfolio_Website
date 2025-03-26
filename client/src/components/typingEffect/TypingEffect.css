@@ -1,0 +1,14 @@
+.blinking-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 20px;
+  background: black;
+  margin-left: 2px;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

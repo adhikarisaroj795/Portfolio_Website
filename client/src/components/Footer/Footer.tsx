@@ -10,10 +10,22 @@ const Footer: React.FC = () => {
           <span>_Find me in:</span>
         </div>
         <div className={styles.col2}>
-          <FaInstagram />
+          <a
+            href="https://www.instagram.com/adk_saroz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </a>
         </div>
         <div className={styles.col3}>
-          <FaLinkedinIn />
+          <a
+            href="https://www.linkedin.com/in/saroj-adhikari-ba123b207/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedinIn />
+          </a>
         </div>
       </div>
     </footer>

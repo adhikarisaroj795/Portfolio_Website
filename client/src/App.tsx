@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Layout from "./pages/layout/Layout";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Contact from "./pages/contacts/Contact";
@@ -9,7 +9,16 @@ const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));
 const Projects = lazy(() => import("./pages/projects/Projects"));
 
-const App = () => {
+const App: React.FC = () => {
+  const [isloading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -23,9 +32,9 @@ const App = () => {
         {
           path: "/",
           element: (
-            <Suspense fallback={<TerminalLoader />}>
-              <Home />
-            </Suspense>
+            // <Suspense fallback={<TerminalLoader />}>
+            <Home />
+            // </Suspense>
           ),
         },
         {
@@ -63,7 +72,9 @@ const App = () => {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <>{isloading ? <TerminalLoader /> : <RouterProvider router={router} />}</>
+  );
 };
 
 export default App;
