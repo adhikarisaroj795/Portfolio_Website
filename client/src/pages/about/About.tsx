@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./about.css";
 import coder1 from "../../assets/images/icons/coder 1.svg";
 import gamepad from "../../assets/images/icons/gamepad-solid 1.svg";
@@ -7,10 +7,15 @@ import { BiSolidDownArrow } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 import { FaFolder } from "react-icons/fa6";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import Bio from "../../components/aboutus-components/Bio/Bio";
+
 import Interest from "../../components/aboutus-components/interest/Interest";
+import { aboutUsSideBar } from "./aboutusData";
+import Bio from "../../components/aboutus-components/Bio/Bio";
+import Education from "../../components/aboutus-components/Education/Education";
+import Skills from "../../components/aboutus-components/Skills/Skills";
 
 const About: React.FC = () => {
+  const [activeSection, setActiveSection] = useState<string>("bio"); // Default to "bio"
   return (
     <section className="about-me-sec">
       <div className="about-me-wrapper flex">
@@ -31,43 +36,34 @@ const About: React.FC = () => {
             <span>Personal-info </span>
           </div>
           <div className="about-me-col2-main-content">
-            <div className="about-me-col2-content-row1">
-              <MdKeyboardArrowRight /> <FaFolder className="folder-color1" />{" "}
-              <span>bio</span>
-            </div>
-            <div className="about-me-col2-content-row1">
-              <MdKeyboardArrowRight /> <FaFolder className="folder-color2" />{" "}
-              <span>interest</span>
-            </div>
-            <div className="about-me-col2-content-row1">
-              <MdKeyboardArrowRight /> <FaFolder className="folder-color3" />{" "}
-              <span>education</span>
-            </div>
-            <div className="about-me-col2-content-row1">
-              <MdKeyboardArrowRight /> <FaFolder className="folder-color4" />{" "}
-              <span>skills</span>
-            </div>
-            <div className="about-me-col2-content-row1">
-              <MdKeyboardArrowRight /> <FaFolder className="folder-color5" />{" "}
-              <span>service</span>
-            </div>
-            <div className="about-me-col2-content-row1">
-              <MdKeyboardArrowRight /> <FaFolder className="folder-color6" />{" "}
-              <span>experience</span>
-            </div>
+            {aboutUsSideBar?.map(({ id, label, class: folderClass }) => (
+              <div
+                key={id}
+                className={`about-me-col2-content-row1 ${
+                  activeSection === id ? "about-active" : ""
+                }`}
+                onClick={() => setActiveSection(id)} // Set Active Section
+              >
+                <MdKeyboardArrowRight /> <FaFolder className={folderClass} />
+                <span>{label}</span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="about-me-col3">
           <div className="about-me-col3-heading">
-            <BiSolidDownArrow />
-            <span>Personal-info</span>
+            {/* <BiSolidDownArrow /> */}
+            <span>{activeSection}</span>
             <RxCross2 className="about-cross" />
           </div>
 
           <div className="about-me-col3-main-content">
-            {/* <Bio /> */}
-
-            <Interest />
+            {activeSection === "bio" && <Bio />}
+            {activeSection === "interest" && <Interest />}
+            {activeSection === "education" && <Education />}
+            {activeSection === "skills" && <Skills />}
+            {/* {activeSection === "service" && <Service />}
+            {activeSection === "experience" && <Experience />} */}
           </div>
         </div>
       </div>

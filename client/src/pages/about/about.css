@@ -56,6 +56,7 @@
   align-items: center;
   gap: 10px;
   padding-inline: 10px;
+  padding-left: 25px !important;
   border-right: 2px solid var(--color-primary);
   /* padding-bottom: 24px; */
   max-width: 329px;
@@ -70,6 +71,8 @@
 .about-me-col3-main-content {
   border-top: 2px solid var(--color-primary);
   padding-inline: 10px;
+  padding-right: 10px;
+  padding-left: 25px;
   padding-top: 20px;
 }
 
@@ -78,6 +81,7 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  color: var(--color-primary);
 }
 .about-me-col2-content-row1 span {
   padding-left: 10px;
@@ -107,4 +111,8 @@
 }
 .folder-color6 {
   color: #795548;
+}
+
+.about-active {
+  color: #ebf4e6;
 }
