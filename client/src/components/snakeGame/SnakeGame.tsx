@@ -35,7 +35,9 @@ const DIRECTIONS = {
   RIGHT: { x: 1, y: 0 },
 } as const;
 
-const SnakeGame: React.FC = () => {
+const SnakeGame: React.FC<{
+  onGameOverChange: (gameOver: boolean) => void;
+}> = ({ onGameOverChange }) => {
   const [snake, setSnake] = useState<Position[]>(INITIAL_SNAKE);
   const [food, setFood] = useState<Position>(() =>
     getRandomFoodPosition(INITIAL_SNAKE)
@@ -48,6 +50,10 @@ const SnakeGame: React.FC = () => {
   const directionQueue = useRef<Position | null>(null);
   const directionRef = useRef<Position>(direction);
   const snakeRef = useRef<Position[]>(snake);
+
+  useEffect(() => {
+    onGameOverChange(gameOver);
+  }, [gameOver, onGameOverChange]);
 
   useEffect(() => {
     directionRef.current = direction;

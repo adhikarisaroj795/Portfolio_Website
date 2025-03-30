@@ -10,15 +10,15 @@ const About = lazy(() => import("./pages/about/About"));
 const Projects = lazy(() => import("./pages/projects/Projects"));
 
 const App: React.FC = () => {
-  const [isloading, setIsLoading] = useState<boolean>(true);
+  const [isloading, setIsLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
   const router = createBrowserRouter([
     {
       path: "/",

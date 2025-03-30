@@ -8,8 +8,10 @@ import {
   IoMdArrowDroprightCircle,
 } from "react-icons/io";
 import TypingEffect from "../../components/typingEffect/TypingEffect";
+import { useState } from "react";
 
 const Home: React.FC = () => {
+  const [isGameOver, setIsGameOver] = useState<boolean>(false);
   return (
     <section className="home-section">
       <div className="home-page-wrapper flex">
@@ -18,10 +20,9 @@ const Home: React.FC = () => {
             <span className="f-regular">Hi all, i am</span>
 
             <h1>Saroj Adikari</h1>
-            <h3 className="color-blue">
-              {/* <MdKeyboardArrowRight /> */}
-              <TypingEffect />
-            </h3>
+
+            {/* <MdKeyboardArrowRight /> */}
+            <TypingEffect />
 
             <div className="comment">
               <span>//complete the game to continue</span>
@@ -44,7 +45,7 @@ const Home: React.FC = () => {
           </div>
         </div>
         <div className="home-page-right flex">
-          <SnakeGame />
+          <SnakeGame onGameOverChange={setIsGameOver} />
           <div className="game-controls">
             <div className="controlls-comment">
               <span>// Use Keyboard</span>
@@ -70,6 +71,9 @@ const Home: React.FC = () => {
 
             <div className="snk-highscore">
               <span className="color-blue"> Highest Score: 85</span>
+            </div>
+            <div className="snk-gameover">
+              <span> {isGameOver ? "//Game-Over" : ""}</span>
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ const TypingEffect: React.FC = () => {
   }, [text, isDeleting, index]);
 
   return (
-    <h3>
+    <h3 className="color-blue">
       {">"} {text}
       <span className="blinking-cursor">|</span>
     </h3>

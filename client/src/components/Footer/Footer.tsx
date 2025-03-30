@@ -1,6 +1,7 @@
 import styles from "./Footer.module.css";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
+import { IoTerminal } from "react-icons/io5";
 
 const Footer: React.FC = () => {
   return (
@@ -26,6 +27,14 @@ const Footer: React.FC = () => {
           >
             <FaLinkedinIn />
           </a>
+        </div>
+      </div>
+      <div className="footer-terminal">
+        <div className={styles.foterminal}>
+          <span>
+            <IoTerminal />
+            TERMINAL
+          </span>
         </div>
       </div>
     </footer>

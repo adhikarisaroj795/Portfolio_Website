@@ -14,13 +14,16 @@ footer {
   border-right: 2px solid var(--color-primary);
   border-bottom: 2px solid var(--color-primary);
   display: flex;
+  justify-content: space-between;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .col1 {
   display: flex;
   align-items: center;
   height: 100%;
-  padding-right: 40px;
+  padding-right: 94.5px;
   color: var(--color-primary);
 
   border-right: 2px solid var(--color-primary);
@@ -51,4 +54,23 @@ footer {
 }
 .col3 a {
   display: flex;
+}
+.foterminal {
+  display: flex;
+  height: 100%;
+  padding-left: 24px;
+  color: var(--color-primary);
+  border-left: 2px solid var(--color-primary);
+  align-items: center;
+  justify-content: center;
+}
+
+.foterminal span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-variation-settings: "wght" 500, "slnt" 0;
+}
+.foterminal span > svg {
+  font-size: 1.5;
 }

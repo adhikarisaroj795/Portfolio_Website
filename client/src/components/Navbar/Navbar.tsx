@@ -7,7 +7,6 @@ interface NavItem {
   label: string;
 }
 
-// Navigation items moved outside the component for better maintainability
 const navItems: NavItem[] = [
   { path: "/", label: "_hello" },
   { path: "/about-me", label: "_about-me" },
@@ -37,7 +36,7 @@ const Navbar: React.FC = () => {
       <div className="contact-us">
         <ul>
           <li className={location.pathname === "/contact-me" ? "active" : ""}>
-            <Link to="/contact-me">_contact-us</Link>
+            <Link to="/contact-me">_contact-me</Link>
           </li>
         </ul>
       </div>

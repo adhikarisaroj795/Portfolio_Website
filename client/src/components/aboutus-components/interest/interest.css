@@ -1,0 +1,14 @@
+.interst-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.interst-wrapper ul li {
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+
+.interst-wrapper > div {
+  /* padding-left: 40px; */
+}
