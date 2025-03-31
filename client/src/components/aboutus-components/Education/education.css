@@ -1,0 +1,41 @@
+.education-wrapper {
+  white-space: pre-wrap;
+
+  /* background-color: teal; */
+}
+
+.education-container {
+  color: #333;
+}
+
+.education-indent {
+  margin-left: 20px;
+}
+
+.education-item-indent {
+  margin-left: 20px;
+}
+
+.code-keyword {
+  color: #a36de7;
+}
+
+.code-variable {
+  color: #e36209;
+}
+
+.code-operator {
+  color: #a36de7;
+}
+
+.code-punctuation {
+  color: #a36de7;
+}
+
+.code-key {
+  color: #ffffff;
+}
+
+.code-string {
+  color: #e7a863;
+}
