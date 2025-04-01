@@ -1,0 +1,93 @@
+.algorithmic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.algorithmic-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.algorithmic-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.algorithmic-tag-cloud {
+  position: relative;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.algorithmic-tag {
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.algorithmic-tag:hover {
+  opacity: 1 !important;
+}
+
+.tag-value-badge {
+  font-size: 0.6em;
+  margin-left: 0.3em;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.1em 0.4em;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.algorithmic-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-label {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+@media (max-width: 768px) {
+  .algorithmic-title {
+    font-size: 1.5rem;
+  }
+
+  .algorithmic-tag-cloud {
+    width: 100% !important;
+    height: 400px !important;
+  }
+}

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./education.css";
+import typingSound from "../../../assets/typing.mp3";
 
 type EducationItem = {
   degree: string;
@@ -61,19 +62,33 @@ const Education = () => {
     const b = parseInt(hex.substring(4, 6), 16);
     return `rgb(${r}, ${g}, ${b})`;
   };
-
+  const audioRef = useRef(new Audio(typingSound));
+  audioRef.current.preload = "auto";
   useEffect(() => {
     let charIndex = 0;
+    audioRef.current.volume = 0.3;
+
+    audioRef.current.load();
+    audioRef.current.currentTime = 3;
+    audioRef.current.loop = true;
+    audioRef.current.volume = 0.3;
+    audioRef.current.play().catch((error) => console.log("Audio error", error));
+
     const typingInterval = setInterval(() => {
       if (charIndex < fullText.length) {
         setTypedText(fullText.substring(0, charIndex + 1));
+
         charIndex++;
       } else {
         clearInterval(typingInterval);
+        audioRef.current.pause();
       }
     }, 30);
 
-    return () => clearInterval(typingInterval);
+    return () => {
+      clearInterval(typingInterval);
+      audioRef.current.pause();
+    };
   }, [fullText]);
 
   const renderColoredText = () => {
