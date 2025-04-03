@@ -5,9 +5,10 @@ import Footer from "../../components/Footer/Footer";
 import "./layout.css";
 
 const Layout = () => {
+  const [isTerminalActive, setTerminalActive] = useState(false);
   const location = useLocation();
   const [isHomePage, setIsHomePage] = useState(location.pathname === "/");
-
+  console.log(isTerminalActive, "hello");
   useEffect(() => {
     setIsHomePage(location.pathname === "/");
   }, [location.pathname]); // Runs whenever the route changes
@@ -19,11 +20,11 @@ const Layout = () => {
       </div>
 
       <div className="content" style={isHomePage ? { paddingRight: 24 } : {}}>
-        <Outlet />
+        <Outlet context={{ isTerminalActive }} />
       </div>
 
       <div className="footer">
-        <Footer />
+        <Footer setTerminalActive={setTerminalActive} />
       </div>
     </div>
   );

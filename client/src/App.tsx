@@ -4,6 +4,7 @@ import Layout from "./pages/layout/Layout";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Contact from "./pages/contacts/Contact";
 import TerminalLoader from "./components/Custom-loader/Loader";
+import Terminal from "./components/Terminal/Terminal";
 
 const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));
@@ -62,10 +63,10 @@ const App: React.FC = () => {
           ),
         },
         {
-          path: "loader",
+          path: "terminal",
           element: (
             <Suspense fallback={<div> Loading...</div>}>
-              <TerminalLoader />
+              {/* <Terminal /> */}
             </Suspense>
           ),
         },

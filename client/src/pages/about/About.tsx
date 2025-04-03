@@ -13,9 +13,15 @@ import { aboutUsSideBar } from "./aboutusData";
 import Bio from "../../components/aboutus-components/Bio/Bio";
 import Education from "../../components/aboutus-components/Education/Education";
 import Skills from "../../components/aboutus-components/Skills/Skills";
+import Terminal from "../../components/Terminal/Terminal";
 
-const About: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string>("bio"); // Default to "bio"
+interface TerminalProps {
+  isTerminalActive: boolean;
+}
+
+const About: React.FC<TerminalProps> = ({ isTerminalActive }) => {
+  console.log(isTerminalActive, "about");
+  const [activeSection, setActiveSection] = useState<string>("bio");
   return (
     <section className="about-me-sec">
       <div className="about-me-wrapper flex">
@@ -65,6 +71,7 @@ const About: React.FC = () => {
             {/* {activeSection === "service" && <Service />}
             {activeSection === "experience" && <Experience />} */}
           </div>
+          <Terminal isTerminalActive={isTerminalActive} />
         </div>
       </div>
     </section>

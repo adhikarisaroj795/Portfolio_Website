@@ -3,9 +3,15 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { IoTerminal } from "react-icons/io5";
 
-const Footer: React.FC = () => {
+// ✅ Define the expected prop type
+interface FooterProps {
+  setTerminalActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Footer: React.FC<FooterProps> = ({ setTerminalActive }) => {
+  console.log(setTerminalActive);
   return (
-    <footer className="">
+    <footer>
       <div className={styles.wrapper}>
         <div className={styles.col1}>
           <span>_Find me in:</span>
@@ -30,8 +36,17 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="footer-terminal">
-        <div className={styles.foterminal}>
-          <span>
+        <div className={styles.foterminal} style={{ border: "2px solid blue" }}>
+          <span
+            onClick={() => {
+              console.log("Terminal clicked");
+
+              setTerminalActive((prev) => {
+                console.log("Prevstate", prev);
+                return !prev;
+              });
+            }}
+          >
             <IoTerminal />
             TERMINAL
           </span>
